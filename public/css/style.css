@@ -10,9 +10,9 @@
 }
 
 :root {
-    --primary: #3B82F6;
-    --primary-dark: #2563EB;
-    --secondary: #8B5CF6;
+    --primary: #1B3C53;
+    --primary-dark: #4487B7;
+    --secondary: #2F6C92;
     --success: #10B981;
     --danger: #EF4444;
     --warning: #F59E0B;
@@ -258,8 +258,8 @@ img {
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
+    background: linear-gradient(360deg, #4487B7 0%, #ffffff 100%);
+    color: #1B3C53;
 }
 
 .hero-bg {
@@ -595,7 +595,7 @@ img {
 /* CTA Section */
 .cta {
     padding: 100px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(180deg, #2F6C92 0%, #E3EBF6 100%);
     color: #fff;
     text-align: center;
 }
