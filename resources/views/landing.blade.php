@@ -35,7 +35,7 @@
                 <p>Siap Disewa</p>
             </div>
             <div class="stat-card">
-                <div class="stat-icon">⭐</div>
+                <div class="stat-icon">BINTANGGGG!</div>
                 <h3>4.9/5</h3>
                 <p>Rating Pelanggan</p>
             </div>
