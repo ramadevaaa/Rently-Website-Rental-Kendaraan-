@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', 'Edit Kendaraan - Admin')
 @section('content')
 <section class="pemesanan-form">

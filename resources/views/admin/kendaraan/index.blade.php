@@ -1,12 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', 'Kelola Kendaraan - Admin')
 @section('content')
 <section class="dashboard">
     <div class="container">
-        <div class="dashboard-header">
-            <h1>Kelola Kendaraan</h1>
-            <a href="{{ route('admin.kendaraan.create') }}" class="btn btn-primary">+ Tambah Kendaraan</a>
-        </div>
+        
+      <div class="dashboard-header" style="display: flex; justify-content: space-between; align-items: center;">
+
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="{{ route('admin.dashboard') }}" class="btn btn-outline">
+            ← Kembali
+        </a>
+        <h1 style="margin: 0;">Kelola Kendaraan</h1>
+    </div>
+
+    <a href="{{ route('admin.kendaraan.create') }}" class="btn btn-primary">+ Tambah Kendaraan</a>
+</div>
 
         <div class="filter-section">
             <form action="{{ route('admin.kendaraan.index') }}" method="GET" class="filter-form">

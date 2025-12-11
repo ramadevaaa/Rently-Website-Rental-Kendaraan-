@@ -18,10 +18,22 @@ use App\Http\Controllers\Admin\PemesananAdminController;
 
 // Landing Page
 Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/', function () {
+    if (auth()->check() && auth()->user()->role === 'admin') {
+        return redirect()->route('admin.dashboard'); // Admin otomatis ke dashboard
+    }
+
+    return app(App\Http\Controllers\LandingController::class)->index();
+})->name('landing');
 
 // Kendaraan (Public)
 Route::get('/kendaraan', [KendaraanController::class, 'index'])->name('kendaraan.index');
 Route::get('/kendaraan/{id}', [KendaraanController::class, 'show'])->name('kendaraan.show');
+Route::middleware('role:user')->group(function () {
+    Route::get('/kendaraan', [KendaraanController::class, 'index'])->name('kendaraan.index');
+    Route::get('/kendaraan/{id}', [KendaraanController::class, 'show'])->name('kendaraan.show');
+});
+
 
 // Authentication Routes (Laravel Breeze/Fortify akan generate otomatis)
 // Atau bisa menggunakan ini untuk manual:

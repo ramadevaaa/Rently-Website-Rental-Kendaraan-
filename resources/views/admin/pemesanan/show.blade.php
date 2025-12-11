@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', 'Detail Pemesanan - Admin')
 @section('content')
 <section class="vehicle-detail">

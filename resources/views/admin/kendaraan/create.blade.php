@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', 'Tambah Kendaraan - Admin')
 @section('content')
 <section class="pemesanan-form">
@@ -96,7 +96,7 @@
                     </div>
 
                     <div class="form-actions">
-                        <a href="{{ route('admin.kendaraan.index') }}" class="btn btn-outline btn-lg">Batal</a>
+                        <a href="{{ route('admin.dashboard') }}" class="btn btn-outline btn-lg">Batal</a>
                         <button type="submit" class="btn btn-primary btn-lg">Simpan Kendaraan</button>
                     </div>
                 </form>
