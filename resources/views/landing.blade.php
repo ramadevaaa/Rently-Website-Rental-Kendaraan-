@@ -13,7 +13,7 @@
             <div class="hero-cta">
                 <a href="{{ route('kendaraan.index') }}" class="btn btn-primary btn-lg">Lihat Kendaraan</a>
                 @guest
-                    <a href="{{ route('register') }}" class="btn btn-outline btn-lg">Daftar Sekarang</a>
+                    <a href="{{ route('register') }}" class="btn btn-outline">Daftar Sekarang</a>
                 @endguest
             </div>
         </div>
@@ -191,7 +191,7 @@
                     <a href="{{ route('kendaraan.index') }}" class="btn btn-primary btn-lg">Sewa Sekarang</a>
                 @else
                     <a href="{{ route('register') }}" class="btn btn-primary btn-lg">Daftar Gratis</a>
-                    <a href="{{ route('kendaraan.index') }}" class="btn btn-outline-light btn-lg">Lihat Kendaraan</a>
+                    <a href="{{ route('kendaraan.index') }}" class="btn btn-outline">Lihat Kendaraan</a>
                 @endauth
             </div>
         </div>

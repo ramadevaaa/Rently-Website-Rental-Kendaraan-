@@ -158,13 +158,14 @@ img {
 }
 
 .btn-outline {
-    background: transparent;
+    background: whitesmoke;
     color: var(--primary);
-    border: 2px solid var(--primary);
+
 }
 
 .btn-outline:hover {
     background: var(--primary);
+     transform: translateY(-2px);
     color: #fff;
 }
 
@@ -254,49 +255,97 @@ img {
 /* Hero Section */
 .hero {
     position: relative;
-    min-height: 600px;
+    min-height: 620px;
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: linear-gradient(360deg, #4487B7 0%, #ffffff 100%);
-    color: #1B3C53;
+
+    /* Gradien lebih premium: biru gelap → biru lembut */
+    background: linear-gradient(180deg, #0F3A5A 0%, #3F82B5 45%, #EAF4FF 100%);
+
+    color: #0E1F2F;
+    padding: 40px 20px;
 }
 
+/* Background pattern yang lebih soft & modern */
 .hero-bg {
     position: absolute;
     inset: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/><circle fill="%23ffffff" fill-opacity="0.05" cx="200" cy="100" r="150"/><circle fill="%23ffffff" fill-opacity="0.05" cx="1000" cy="400" r="200"/></svg>');
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%230F3A5A" width="1200" height="600"/><circle fill="%23ffffff" fill-opacity="0.03" cx="250" cy="120" r="180"/><circle fill="%23ffffff" fill-opacity="0.03" cx="1000" cy="450" r="250"/></svg>');
     background-size: cover;
-    opacity: 0.3;
+    opacity: 0.35;
 }
 
+/* Konten tetap di atas background */
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     text-align: center;
-    max-width: 700px;
+    max-width: 760px;
     margin: 0 auto;
 }
 
+/* Headline lebih bold & elegan */
 .hero-title {
-    font-size: 56px;
+    font-size: 58px;
     font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1px;
     margin-bottom: 20px;
-    line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
+/* Subheadline lebih ringan & readable */
 .hero-subtitle {
     font-size: 20px;
-    margin-bottom: 32px;
+    color: #F0F6FC;
+    margin-bottom: 36px;
     opacity: 0.95;
 }
 
+/* CTA group */
 .hero-cta {
     display: flex;
-    gap: 16px;
     justify-content: center;
+    gap: 18px;
     flex-wrap: wrap;
 }
+
+/* Tombol modern */
+.hero-btn {
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+/* Tombol utama */
+.hero-btn.primary {
+    background: #3ECF8E;
+    color: #0B1F16;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.hero-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+
+/* Tombol sekunder */
+.hero-btn.secondary {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    background: transparent;
+}
+
+.hero-btn.secondary:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-3px);
+}
+
 
 /* Stats Section */
 .stats {
@@ -598,6 +647,7 @@ img {
     background: linear-gradient(180deg, #2F6C92 0%, #E3EBF6 100%);
     color: #fff;
     text-align: center;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
 .cta-content h2 {
