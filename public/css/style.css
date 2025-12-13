@@ -353,18 +353,33 @@ img {
     background: var(--light);
 }
 
+/* FIX: Ini WAJIB ada */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
 }
 
+/* Responsive */
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Card */
 .stat-card {
-    background: #fff;
-    padding: 32px;
-    border-radius: 16px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: var(--shadow);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
 }
 
@@ -373,11 +388,23 @@ img {
     box-shadow: var(--shadow-lg);
 }
 
+/* Icon */
 .stat-icon {
-    font-size: 48px;
-    margin-bottom: 16px;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 12px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.stat-icon img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* Text */
 .stat-card h3 {
     font-size: 36px;
     font-weight: 700;
@@ -446,9 +473,28 @@ img {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
 }
 
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* CENTER horizontal semua isi */
+    justify-content: center; /* CENTER vertical isi utama */
+    text-align: center;
+    padding: 32px 24px;
+}
+
 .category-icon {
-    font-size: 48px;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 16px;
+}
+
+.category-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
 }
 
 .category-card h3 {
@@ -611,6 +657,7 @@ img {
 }
 
 .feature-card {
+    align-items: center;
     text-align: center;
     padding: 32px 24px;
     background: #fff;
@@ -625,8 +672,12 @@ img {
 }
 
 .feature-icon {
-    font-size: 56px;
-    margin-bottom: 16px;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px auto; /* ⬅️ INI KUNCINYA */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .feature-card h3 {
@@ -639,6 +690,12 @@ img {
 .feature-card p {
     color: var(--text-light);
     line-height: 1.6;
+}
+
+.feature-icon img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
 }
 
 /* CTA Section */
