@@ -93,50 +93,7 @@
         @yield('content')
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="logo">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <rect width="32" height="32" rx="8" fill="#3B82F6"/>
-                            <path d="M8 12L16 8L24 12V20L16 24L8 20V12Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-                        </svg>
-                        <span>RentLy</span>
-                    </div>
-                    <p class="footer-desc">Platform rental kendaraan terpercaya dengan pilihan lengkap dan harga terjangkau.</p>
-                </div>
 
-                <div class="footer-section">
-                    <h3>Menu</h3>
-                    <a href="{{ route('landing') }}">Beranda</a>
-                    <a href="{{ route('kendaraan.index') }}">Kendaraan</a>
-                    <a href="{{ route('kendaraan.index', ['kategori' => 'mobil']) }}">Mobil</a>
-                    <a href="{{ route('kendaraan.index', ['kategori' => 'motor']) }}">Motor</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Informasi</h3>
-                    <a href="#">Tentang Kami</a>
-                    <a href="#">Syarat & Ketentuan</a>
-                    <a href="#">Kebijakan Privasi</a>
-                    <a href="#">FAQ</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Kontak</h3>
-                    <p>📧 info@rently.com</p>
-                    <p>📱 +62 812-3456-7890</p>
-                    <p>📍 Jakarta, Indonesia</p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; {{ date('Y') }} RentLy. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <script src="{{ asset('js/script.js') }}"></script>
     @stack('scripts')
