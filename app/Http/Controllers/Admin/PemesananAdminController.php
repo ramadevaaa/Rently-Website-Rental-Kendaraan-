@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Pemesanan;
 use App\Models\Kendaraan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
+use App\Mail\PemesananDisetujui;
 
 class PemesananAdminController extends Controller
 {
@@ -68,9 +71,44 @@ class PemesananAdminController extends Controller
         } elseif ($request->status == 'rejected') {
             $kendaraan->update(['status' => 'tersedia']);
         }
+        // Kirim email jika disetujui (status jadi Aktif)
+if ($request['status'] === 'approved' && $old_status === 'pending') {
+    $this->sendApprovalEmail($pemesanan);
+}
 
         return redirect()->back()->with('success', 'Status pemesanan berhasil diupdate');
     }
+   private function sendApprovalEmail($pemesanan)
+{
+    try {
+        $admin = \App\Models\User::where('role', 'admin')->first();
+
+        if (!$admin) {
+            Log::error('Admin tidak ditemukan');
+            return;
+        }
+
+        if (!$pemesanan->user || !$pemesanan->user->email) {
+            Log::error('Email user tidak valid');
+            return;
+        }
+
+        $adminContact = [
+            'name' => $admin->name,
+            'email' => $admin->email,
+            'whatsapp' => $admin->whatsapp ?? null,
+        ];
+
+        Mail::to($pemesanan->user->email)
+            ->send(new \App\Mail\PemesananDisetujui($pemesanan, $adminContact));
+
+    } catch (\Throwable $e) {
+        Log::error('Email gagal dikirim', [
+            'error' => $e->getMessage(),
+            'pemesanan_id' => $pemesanan->id
+        ]);
+    }
+}
 
     // Hapus pemesanan
     public function destroy($id)
