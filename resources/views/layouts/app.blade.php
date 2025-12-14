@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'RentLy - Rental Kendaraan Terpercaya')</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
     @stack('styles')
 </head>
 <body>
@@ -35,7 +36,7 @@
                         @endif
                         
                         <div class="nav-user">
-                            <span class="user-name">{{ auth()->user()->name }}</span>
+                            <a href="{{ route('profile.show') }}" class="user-name profile-link"> {{ auth()->user()->name }} </a>
                             <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                                 @csrf
                                 <button type="submit" class="btn btn-outline">Logout</button>

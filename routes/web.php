@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\KendaraanAdminController;
 use App\Http\Controllers\Admin\PemesananAdminController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,11 +102,23 @@ Route::post('/logout', function(\Illuminate\Http\Request $request) {
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.user');
     
+    // Profil User
+// Profil User
+    Route::get('/profile', [ProfileController::class, 'show'])
+        ->name('profile.show');
+
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])
+        ->name('profile.edit');
+
+    Route::put('/profile', [ProfileController::class, 'update'])
+        ->name('profile.update');
+
     // Pemesanan
     Route::get('/pemesanan/create/{kendaraan_id}', [PemesananController::class, 'create'])->name('pemesanan.create');
     Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
     Route::post('/pemesanan/{id}/cancel', [PemesananController::class, 'cancel'])->name('pemesanan.cancel');
 });
+
 // Admin Routes (Protected)
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
 // Dashboard Admin
