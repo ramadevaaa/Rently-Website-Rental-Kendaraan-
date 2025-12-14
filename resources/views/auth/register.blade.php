@@ -2,135 +2,114 @@
 
 @section('title', 'Daftar - RentLy')
 
-@section('content')
-<section class="auth-section">
-    <div class="container">
-        <div class="auth-container">
-            <div class="auth-illustration">
-                <svg viewBox="0 0 400 300" fill="none">
-                    <rect width="400" height="300" fill="url(#gradient2)"/>
-                    <circle cx="200" cy="150" r="80" fill="white" opacity="0.1"/>
-                    <circle cx="200" cy="150" r="60" fill="white" opacity="0.15"/>
-                    <path d="M200 110 L240 150 L200 190 L160 150 Z" fill="white"/>
-                    <defs>
-                        <linearGradient id="gradient2" x1="0" y1="0" x2="400" y2="300">
-                            <stop offset="0%" stop-color="#f093fb"/>
-                            <stop offset="100%" stop-color="#f5576c"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <div class="illustration-content">
-                    <h2>Bergabung dengan RentLy</h2>
-                    <p>Daftar sekarang dan nikmati kemudahan rental kendaraan dengan harga terbaik</p>
-                </div>
-            </div>
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+@endpush
 
-            <div class="auth-form-wrapper">
-                <div class="auth-form">
-                    <h1>Daftar</h1>
-                    <p class="auth-subtitle">Buat akun baru untuk mulai menyewa</p>
+@section('content')
+    <div class="register-wrapper">
+        <div class="register-container">
+
+            {{-- LEFT SIDE --}}
+            <div class="register-left"></div>
+
+            {{-- RIGHT SIDE --}}
+            <div class="register-right">
+                <div class="register-box">
+
+                    {{-- LOGO --}}
+                    <div class="register-logo">
+                        <img src="{{ asset('images/logorently.png') }}" alt="RentLy Logo" class="logo-image">
+                    </div>
+
+                    <h1>Daftarkan Diri Kamu</h1>
+                    <p class="register-subtitle">
+                        Buat akun baru untuk mulai menyewa
+                    </p>
 
                     <form action="{{ route('register.post') }}" method="POST">
                         @csrf
 
+                        {{-- NAMA --}}
                         <div class="form-group">
-                            <label for="name">Nama Lengkap <span class="required">*</span></label>
-                            <input type="text" 
-                                   id="name" 
-                                   name="name" 
-                                   class="form-control @error('name') is-invalid @enderror" 
-                                   placeholder="Masukkan nama lengkap"
-                                   value="{{ old('name') }}"
-                                   required 
-                                   autofocus>
-                            @error('name')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <input type="text" name="name" placeholder="Masukkan Nama Lengkap" value="{{ old('name') }}"
+                                required>
                         </div>
 
+                        {{-- EMAIL --}}
                         <div class="form-group">
-                            <label for="email">Email <span class="required">*</span></label>
-                            <input type="email" 
-                                   id="email" 
-                                   name="email" 
-                                   class="form-control @error('email') is-invalid @enderror" 
-                                   placeholder="nama@email.com"
-                                   value="{{ old('email') }}"
-                                   required>
-                            @error('email')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <input type="email" name="email" placeholder="Masukkan Email" value="{{ old('email') }}"
+                                required>
                         </div>
 
+                        {{-- TELEPON --}}
                         <div class="form-group">
-                            <label for="phone">No. Telepon</label>
-                            <input type="text" 
-                                   id="phone" 
-                                   name="phone" 
-                                   class="form-control @error('phone') is-invalid @enderror" 
-                                   placeholder="08xx-xxxx-xxxx"
-                                   value="{{ old('phone') }}">
-                            @error('phone')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <input type="text" name="phone" placeholder="Masukkan No Telepon" value="{{ old('phone') }}">
                         </div>
 
+                        {{-- ALAMAT --}}
                         <div class="form-group">
-                            <label for="address">Alamat</label>
-                            <textarea id="address" 
-                                      name="address" 
-                                      class="form-control @error('address') is-invalid @enderror" 
-                                      rows="3"
-                                      placeholder="Masukkan alamat lengkap">{{ old('address') }}</textarea>
-                            @error('address')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <textarea name="address" rows="3" placeholder="Masukkan Alamat">{{ old('address') }}</textarea>
                         </div>
 
-                        <div class="form-group">
-                            <label for="password">Password <span class="required">*</span></label>
-                            <input type="password" 
-                                   id="password" 
-                                   name="password" 
-                                   class="form-control @error('password') is-invalid @enderror" 
-                                   placeholder="Minimal 8 karakter"
-                                   required>
-                            @error('password')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                        {{-- PASSWORD --}}
+                        <div class="form-group password-group">
+                            <input type="password" name="password" id="registerPassword" placeholder="Password" required>
+
+                            <img src="{{ asset('images/close.png') }}" alt="Toggle Password" class="eye"
+                                id="toggleRegisterPassword">
                         </div>
 
-                        <div class="form-group">
-                            <label for="password_confirmation">Konfirmasi Password <span class="required">*</span></label>
-                            <input type="password" 
-                                   id="password_confirmation" 
-                                   name="password_confirmation" 
-                                   class="form-control" 
-                                   placeholder="Ulangi password"
-                                   required>
+                        {{-- KONFIRMASI PASSWORD --}}
+                        <div class="form-group password-group">
+                            <input type="password" name="password_confirmation" id="registerPasswordConfirm"
+                                placeholder="Konfirmasi Password" required>
+
+                            <img src="{{ asset('images/close.png') }}" alt="Toggle Password" class="eye"
+                                id="toggleRegisterPasswordConfirm">
                         </div>
 
-                        <div class="form-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" required>
-                                <span>Saya menyetujui <a href="#" target="_blank">syarat dan ketentuan</a> yang berlaku</span>
-                            </label>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"/>
-                            </svg>
+                        {{-- BUTTON --}}
+                        <button type="submit" class="btn-register">
                             Daftar
                         </button>
                     </form>
 
-                    <div class="auth-footer">
-                        <p>Sudah punya akun? <a href="{{ route('login') }}">Login sekarang</a></p>
+                    <div class="register-footer">
+                        <p>
+                            Sudah punya akun?
+                            <a href="{{ route('login') }}">Login sekarang</a>
+                        </p>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
-</section>
 @endsection
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    function togglePassword(toggleId, inputId) {
+        const toggle = document.getElementById(toggleId);
+        const input = document.getElementById(inputId);
+
+        if (!toggle || !input) return;
+
+        toggle.addEventListener('click', function () {
+            const isPassword = input.type === 'password';
+
+            input.type = isPassword ? 'text' : 'password';
+
+            toggle.src = isPassword
+                ? "{{ asset('images/open.png') }}"
+                : "{{ asset('images/close.png') }}";
+        });
+    }
+
+    togglePassword('toggleRegisterPassword', 'registerPassword');
+    togglePassword('toggleRegisterPasswordConfirm', 'registerPasswordConfirm');
+
+});
+</script>

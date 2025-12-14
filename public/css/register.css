@@ -1,0 +1,150 @@
+/* =========================
+   REGISTER PAGE
+   ========================= */
+
+.register-wrapper {
+    min-height: 100vh;
+    background: #f5f7fa;
+}
+
+.register-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* LEFT GRADIENT */
+.register-left {
+    flex: 1;
+    background: linear-gradient(135deg, #4f86a8, #7fa6bf);
+}
+
+/* RIGHT SIDE */
+.register-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+}
+
+/* FORM BOX */
+.register-box {
+    width: 100%;
+    max-width: 440px;
+    padding: 40px;
+    text-align: center;
+}
+
+/* LOGO */
+.register-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.register-logo .logo-image {
+    width: 170px;   /* tinggal naikkan */
+    object-fit: contain;
+}
+
+
+.register-logo h2 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* TITLE */
+.register-box h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.register-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 28px;
+}
+
+/* FORM */
+.register-box .form-group {
+    margin-bottom: 14px;
+}
+
+.register-box input,
+.register-box textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+}
+
+.register-box textarea {
+    resize: none;
+}
+
+.register-box input:focus,
+.register-box textarea:focus {
+    outline: none;
+    border-color: #4f86a8;
+}
+
+/* BUTTON */
+.btn-register {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(90deg, #6b8fa7, #5c8fb8);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+/* FOOTER */
+.register-footer {
+    margin-top: 24px;
+    font-size: 14px;
+}
+
+.register-footer a {
+    color: #4f86a8;
+    font-weight: 500;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .register-left {
+        display: none;
+    }
+
+    .register-container {
+        flex-direction: column;
+    }
+
+    .register-box {
+    width: 100%;
+    max-width: 440px;
+    padding: 40px;
+    text-align: left; /* ⬅️ PENTING */
+    }
+}
+
+.password-group {
+    position: relative;
+}
+
+.eye {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    cursor: pointer;
+    z-index: 10;
+}
+
