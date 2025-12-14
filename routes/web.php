@@ -9,6 +9,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\KendaraanAdminController;
 use App\Http\Controllers\Admin\PemesananAdminController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -121,4 +123,21 @@ Route::get('/pemesanan', [PemesananAdminController::class, 'index'])->name('peme
 Route::get('/pemesanan/{id}', [PemesananAdminController::class, 'show'])->name('pemesanan.show');
 Route::post('/pemesanan/{id}/status', [PemesananAdminController::class, 'updateStatus'])->name('pemesanan.updateStatus');
 Route::delete('/pemesanan/{id}', [PemesananAdminController::class, 'destroy'])->name('pemesanan.destroy');
+});
+
+//reset-password
+Route::middleware('guest')->group(function () {
+    // Forgot Password
+    Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])
+        ->name('password.request');
+    
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])
+        ->name('password.email');
+    
+    // Reset Password
+    Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])
+        ->name('password.reset');
+    
+    Route::post('/reset-password', [ResetPasswordController::class, 'reset'])
+        ->name('password.update');
 });

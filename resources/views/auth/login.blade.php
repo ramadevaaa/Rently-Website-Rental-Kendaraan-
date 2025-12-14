@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('title', 'Login - RentLy')
 
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="input-group">
-                            <input type="password" id="password" placeholder="Masukkan Kata Sandi">
+                            <input type="password" name="password" id="password" placeholder="Masukkan Kata Sandi">
                             <img src="{{ asset('images/close.png') }}" id="togglePassword" class="eye">
                         </div>
 
@@ -42,7 +42,7 @@
                         </button>
 
                         <div class="login-links">
-                            <a href="#">Lupa kata sandi?</a>
+                            <a href="{{ route('password.request') }}">Lupa kata sandi?</a>
                         </div>
 
                         <p class="register-text">
