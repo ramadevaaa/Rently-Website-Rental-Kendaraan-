@@ -121,7 +121,7 @@
         <!-- Pagination -->
         @if($kendaraans->hasPages())
             <div class="pagination-wrapper">
-                {{ $kendaraans->links('pagination::default') }}
+                {{ $kendaraans->links('custom') }}
             </div>
         @endif
     </div>
