@@ -37,6 +37,22 @@ Route::middleware('role:user')->group(function () {
     Route::get('/kendaraan/{id}', [KendaraanController::class, 'show'])->name('kendaraan.show');
 });
 
+// Informasi 
+Route::get('/tentang-kami', function () {
+    return view('informasi_footer.tentangkami');
+})->name('tentang-kami');
+
+Route::get('/syarat-ketentuan', function () {
+    return view('informasi_footer.syaratketentuan');
+})->name('syarat-ketentuan');
+
+Route::get('/kebijakan-privasi', function () {
+    return view('informasi_footer.kebijakanprivasi');
+})->name('kebijakan-privasi');
+
+Route::get('/faq', function () {
+    return view('informasi_footer.faq');
+})->name('faq');
 
 // Authentication Routes (Laravel Breeze/Fortify akan generate otomatis)
 // Atau bisa menggunakan ini untuk manual:
