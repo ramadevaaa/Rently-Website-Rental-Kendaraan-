@@ -441,4 +441,141 @@
                             <div class="notice-icon">👶</div>
                             <div class="notice-content">
                                 <h3>Layanan Tidak untuk Anak di Bawah Umur</h3>
-                                <p>Layanan
+                                <p>Layanan RentLy ditujukan untuk pengguna yang berusia <strong>18 tahun ke atas</strong>. Kami tidak secara sengaja mengumpulkan informasi pribadi dari anak-anak di bawah 18 tahun.</p>
+                                <p>Jika kami mengetahui bahwa kami telah mengumpulkan data dari anak di bawah umur tanpa verifikasi persetujuan orang tua, kami akan segera menghapus informasi tersebut dari server kami.</p>
+                                <p>Jika Anda adalah orang tua atau wali dan mengetahui bahwa anak Anda telah memberikan data pribadi kepada kami, silakan hubungi kami segera.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Perubahan -->
+                <section id="perubahan" class="privacy-section">
+                    <div class="section-badge">10</div>
+                    <h2 class="section-title">Perubahan Kebijakan Privasi</h2>
+                    <div class="section-content">
+                        <p>Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu untuk mencerminkan perubahan dalam praktik kami atau karena alasan operasional, hukum, atau regulasi lainnya.</p>
+
+                        <div class="update-process">
+                            <div class="process-step">
+                                <div class="step-icon">📝</div>
+                                <h4>Revisi</h4>
+                                <p>Kami update kebijakan sesuai kebutuhan</p>
+                            </div>
+                            <div class="process-arrow">→</div>
+                            <div class="process-step">
+                                <div class="step-icon">📧</div>
+                                <h4>Notifikasi</h4>
+                                <p>Kami kirim email pemberitahuan</p>
+                            </div>
+                            <div class="process-arrow">→</div>
+                            <div class="process-step">
+                                <div class="step-icon">✅</div>
+                                <h4>Berlaku</h4>
+                                <p>Kebijakan baru mulai berlaku</p>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h3>Pemberitahuan Perubahan</h3>
+                            <p>Jika terjadi perubahan material pada kebijakan ini, kami akan:</p>
+                            <ul>
+                                <li>Mengirimkan email notifikasi kepada pengguna terdaftar</li>
+                                <li>Menampilkan notifikasi di website dan aplikasi</li>
+                                <li>Memberikan waktu 30 hari sebelum perubahan berlaku</li>
+                                <li>Meminta persetujuan ulang jika diperlukan</li>
+                            </ul>
+                        </div>
+
+                        <p>Penggunaan layanan kami setelah perubahan kebijakan berarti Anda menerima kebijakan yang telah diperbarui.</p>
+                    </div>
+                </section>
+
+                <!-- Section: Kontak -->
+                <section id="kontak" class="privacy-section">
+                    <div class="contact-section">
+                        <h2>Hubungi Kami</h2>
+                        <p>Jika Anda memiliki pertanyaan, kekhawatiran, atau ingin menggunakan hak privasi Anda, silakan hubungi kami melalui:</p>
+
+                        <div class="contact-grid">
+                            <div class="contact-card">
+                                <div class="contact-icon">📧</div>
+                                <h3>Email</h3>
+                                <p>privacy@rently.com</p>
+                                <span class="response-time">Respon dalam 2x24 jam</span>
+                            </div>
+
+                            <div class="contact-card">
+                                <div class="contact-icon">📞</div>
+                                <h3>Telepon</h3>
+                                <p>+62 812-3456-7890</p>
+                                <span class="response-time">Senin - Jumat, 09:00 - 17:00</span>
+                            </div>
+
+                            <div class="contact-card">
+                                <div class="contact-icon">💬</div>
+                                <h3>WhatsApp</h3>
+                                <p>+62 812-3456-7890</p>
+                                <span class="response-time">Tersedia 24/7</span>
+                            </div>
+
+                            <div class="contact-card">
+                                <div class="contact-icon">📍</div>
+                                <h3>Alamat Kantor</h3>
+                                <p>Jl. Sudirman No. 123</p>
+                                <span class="response-time">Jakarta Selatan, 12190</span>
+                            </div>
+                        </div>
+
+                        <div class="dpo-info">
+                            <strong>🛡️ Data Protection Officer (DPO):</strong><br>
+                            Untuk pertanyaan terkait perlindungan data, hubungi DPO kami di <strong>dpo@rently.com</strong>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </section>
+</div>
+
+@push('scripts')
+<script>
+// Smooth scroll untuk navigasi sidebar
+document.querySelectorAll('.nav-item').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Highlight active section di sidebar
+window.addEventListener('scroll', function() {
+    let current = '';
+    const sections = document.querySelectorAll('.privacy-section');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    document.querySelectorAll('.nav-item').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+        }
+    });
+});
+</script>
+@endpush
+
+@endsection
