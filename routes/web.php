@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PemesananAdminController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,63 +57,6 @@ Route::get('/faq', function () {
 
 // Authentication Routes (Laravel Breeze/Fortify akan generate otomatis)
 // Atau bisa menggunakan ini untuk manual:
-Route::get('/login', function() {
-    return view('auth.login');
-})->name('login')->middleware('guest');
-
-Route::post('/login', function(\Illuminate\Http\Request $request) {
-    $credentials = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required',
-    ]);
-
-    if (Auth::attempt($credentials, $request->filled('remember'))) {
-        $request->session()->regenerate();
-        
-        if (auth()->user()->isAdmin()) {
-            return redirect()->route('admin.dashboard');
-        }
-        return redirect()->route('dashboard.user');
-    }
-
-    return back()->withErrors([
-        'email' => 'Email atau password salah.',
-    ])->onlyInput('email');
-})->name('login.post')->middleware('guest');
-
-Route::get('/register', function() {
-    return view('auth.register');
-})->name('register')->middleware('guest');
-
-Route::post('/register', function(\Illuminate\Http\Request $request) {
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:8|confirmed',
-        'phone' => 'nullable|string|max:20',
-        'address' => 'nullable|string',
-    ]);
-
-    $user = \App\Models\User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => bcrypt($request->password),
-        'phone' => $request->phone,
-        'address' => $request->address,
-        'role' => 'user',
-    ]);
-
-    Auth::login($user);
-
-    return redirect()->route('dashboard.user');
-})->name('register.post')->middleware('guest');
-
-Route::post('/logout', function(\Illuminate\Http\Request $request) {
-    Auth::logout();
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
-    return redirect()->route('landing');
-})->name('logout');
 
 // User Routes (Protected)
 Route::middleware(['auth', 'role:user'])->group(function () {
@@ -170,3 +114,15 @@ Route::middleware('guest')->group(function () {
     Route::post('/reset-password', [ResetPasswordController::class, 'reset'])
         ->name('password.update');
 });
+
+// AUTH (GUEST)
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+
+    Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+    Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+});
+
+// LOGOUT
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
