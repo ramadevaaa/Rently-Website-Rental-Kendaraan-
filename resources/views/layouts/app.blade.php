@@ -119,7 +119,7 @@
                     <h3>Informasi</h3>
                     <a href="{{ route('tentang-kami') }}">Tentang Kami</a>
                     <a href="{{ route('syarat-ketentuan') }}">Syarat & Ketentuan</a>
-                    <a href="#">Kebijakan Privasi</a>
+                    <a href="{{ route('kebijakan-privasi') }}">Kebijakan Privasi</a>
                     <a href="#">FAQ</a>
                 </div>
 
