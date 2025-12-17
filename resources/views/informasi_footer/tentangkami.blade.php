@@ -21,12 +21,12 @@
     <section class="about-section">
         <div class="story-grid">
             <div class="story-image">
-                <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop" alt="RentLy Story">
+                <img src="https://klikpajak.id/wp-content/uploads/2018/10/KlikPajak_Hindari-Sanksi-Pajak-Kendaraan-dengan-Pemutihan-Pajak.jpg" alt="RentLy Story">
             </div>
             <div class="story-content">
                 <h3>Perjalanan Kami Dimulai</h3>
                 <p>
-                    RentLy didirikan pada tahun 2020 dengan visi untuk memberikan kemudahan akses transportasi bagi masyarakat Indonesia. Kami memahami bahwa mobilitas adalah kunci kesuksesan dalam kehidupan modern.
+                    RentLy didirikan pada tahun 2025 dengan visi untuk memberikan kemudahan akses transportasi bagi masyarakat Indonesia. Kami memahami bahwa mobilitas adalah kunci kesuksesan dalam kehidupan modern.
                 </p>
                 <p>
                     Berawal dari armada sederhana dengan 10 kendaraan, kini RentLy telah berkembang menjadi penyedia layanan rental kendaraan terkemuka dengan lebih dari 500+ unit kendaraan yang siap melayani kebutuhan perjalanan Anda.
@@ -102,34 +102,34 @@
         </div>
         <div class="team-grid">
             <div class="team-card">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop" alt="CEO" class="team-image">
+                <img src="https://awsimages.detik.net.id/community/media/visual/2017/12/06/6414c1ae-fcd1-49a6-8316-4a71c29f93ff_43.jpg?w=600&q=90" alt="CEO" class="team-image">
                 <div class="team-info">
-                    <h3 class="team-name">Budi Santoso</h3>
-                    <p class="team-position">CEO & Founder</p>
+                    <h3 class="team-name">Rama Jomok</h3>
+                    <p class="team-position">Web Devoloper</p>
                     <p class="team-desc">Visioner di balik RentLy dengan pengalaman 15 tahun di industri otomotif.</p>
                 </div>
             </div>
             <div class="team-card">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" alt="COO" class="team-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT93ut5cVvfwmzy0ZNcUdgjBpgMvwVwFn3jew&s" alt="COO" class="team-image">
                 <div class="team-info">
-                    <h3 class="team-name">Siti Nurhaliza</h3>
-                    <p class="team-position">Chief Operating Officer</p>
+                    <h3 class="team-name">Munglet Nonchalant</h3>
+                    <p class="team-position">Web Devoloper</p>
                     <p class="team-desc">Memastikan operasional berjalan lancar dengan fokus pada kepuasan pelanggan.</p>
                 </div>
             </div>
             <div class="team-card">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop" alt="CTO" class="team-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMnbKjkeXo6Q0iGPkKczeRPfez1oAgBM-GFA&s" alt="CTO" class="team-image">
                 <div class="team-info">
-                    <h3 class="team-name">Ahmad Rifai</h3>
-                    <p class="team-position">Chief Technology Officer</p>
+                    <h3 class="team-name">Kriwil</h3>
+                    <p class="team-position">Web Devoloper</p>
                     <p class="team-desc">Memimpin inovasi teknologi untuk pengalaman booking yang seamless.</p>
                 </div>
             </div>
             <div class="team-card">
-                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop" alt="Customer Service Manager" class="team-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzqZ_9PFc_2C7cDACv70EuwBWvQu7lVw2jMQ&s" alt="Customer Service Manager" class="team-image">
                 <div class="team-info">
-                    <h3 class="team-name">Dewi Lestari</h3>
-                    <p class="team-position">Customer Service Manager</p>
+                    <h3 class="team-name">Adit Risol Mayo</h3>
+                    <p class="team-position">Web Devoloper</p>
                     <p class="team-desc">Memimpin tim yang siap membantu Anda 24/7 dengan senyuman.</p>
                 </div>
             </div>
