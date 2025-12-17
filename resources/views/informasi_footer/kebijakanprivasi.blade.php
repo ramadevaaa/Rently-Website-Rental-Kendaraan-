@@ -391,7 +391,7 @@
                             <p>Untuk menggunakan hak-hak di atas, silakan hubungi kami melalui:</p>
                             <div class="action-buttons">
                                 <a href="mailto:privacy@rently.com" class="btn btn-primary">📧 Email Privacy Team</a>
-                                <a href="#" class="btn btn-outline">❓ Lihat FAQ</a>
+                                <a href="{{ route('faq') }}" class="btn btn-outline">❓ Lihat FAQ</a>
                             </div>
                         </div>
                     </div>
