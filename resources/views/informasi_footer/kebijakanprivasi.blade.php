@@ -522,8 +522,8 @@
                             <div class="contact-card">
                                 <div class="contact-icon">📍</div>
                                 <h3>Alamat Kantor</h3>
-                                <p>Jl. Sudirman No. 123</p>
-                                <span class="response-time">Jakarta Selatan, 12190</span>
+                                <p>Jl. AGATA PRIDE</p>
+                                <span class="response-time">Bali, 82113</span>
                             </div>
                         </div>
 
