@@ -46,7 +46,7 @@ class PemesananController extends Controller
         // Hitung durasi dan total harga
         $tanggal_mulai = Carbon::parse($request->tanggal_mulai);
         $tanggal_selesai = Carbon::parse($request->tanggal_selesai);
-        $durasi_hari = $tanggal_mulai->diffInDays($tanggal_selesai) + 1; // +1 untuk include hari terakhir
+        $durasi_hari = $tanggal_mulai->diffInDays($tanggal_selesai); // +1 untuk include hari terakhir
         $total_harga = $durasi_hari * $kendaraan->harga_per_hari;
 
         // Buat pemesanan
