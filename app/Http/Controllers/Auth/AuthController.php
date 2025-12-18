@@ -17,28 +17,66 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
+    public function showAdminLogin()
+{
+    return view('auth.loginadmin');
+}
 
-    public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+public function loginAdmin(Request $request) //login sebagai admin
+{
+    $credentials = $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+
+    if (!Auth::attempt($credentials)) {
+        return back()->withErrors([
+            'email' => 'Email atau password salah',
         ]);
+    }
 
-        if (Auth::attempt($credentials, $request->filled('remember'))) {
-            $request->session()->regenerate();
+    // USER DILARANG LOGIN VIA /admin/login
+    if (auth()->user()->role !== 'admin') {
+        Auth::logout();
+        return back()->withErrors([
+            'email' => 'Akun ini bukan admin',
+        ]);
+    }
 
-            if (auth()->user()->role === 'admin') {
-                return redirect()->route('admin.dashboard');
-            }
-
-            return redirect()->route('dashboard.user');
-        }
+    $request->session()->regenerate();
+    return redirect()->route('admin.dashboard');
 
         return back()->withErrors([
             'email' => 'Email atau password salah',
         ]);
     }
+    public function loginUser(Request $request) //login sebagai user
+{
+    $credentials = $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+
+    if (!Auth::attempt($credentials)) {
+        return back()->withErrors([
+            'email' => 'Email atau password salah',
+        ]);
+    }
+
+    // ADMIN DILARANG LOGIN VIA /login
+    if (auth()->user()->role !== 'user') {
+        Auth::logout();
+        return back()->withErrors([
+            'email' => 'Akun admin harus login melalui halaman admin',
+        ]);
+    }
+
+    $request->session()->regenerate();
+    return redirect()->route('dashboard.user');
+     return back()->withErrors([
+            'email' => 'Email atau password salah',
+        ]);
+}
 
     // =====================
     // REGISTER

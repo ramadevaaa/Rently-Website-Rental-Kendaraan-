@@ -117,12 +117,43 @@ Route::middleware('guest')->group(function () {
 
 // AUTH (GUEST)
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-    Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
-    Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-    Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+    // LOGIN USER (STRICT)
+    Route::get('/login', [AuthController::class, 'showLogin'])
+        ->name('login');
+
+    Route::post('/login', [AuthController::class, 'loginUser'])
+        ->name('login.user');
+
+    // REGISTER (USER)
+    Route::get('/register', [AuthController::class, 'showRegister'])
+        ->name('register');
+
+    Route::post('/register', [AuthController::class, 'register'])
+        ->name('register.post');
 });
+
+// menambah /admin pada URL
+Route::prefix('admin')->middleware('guest')->group(function () {
+
+    Route::get('/login', [AuthController::class, 'showAdminLogin'])
+        ->name('admin.login');
+
+    Route::post('/login', [AuthController::class, 'loginAdmin'])
+        ->name('admin.login.post');
+});
+
 
 // LOGOUT
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Memastikan hanya admin yang mengakses page admin, user tidak bisa
+Route::middleware(['auth', 'role:admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+        Route::get('/', [AdminController::class, 'index'])
+            ->name('dashboard');
+
+    });

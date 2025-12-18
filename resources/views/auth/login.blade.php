@@ -24,7 +24,7 @@
 
                     <h1>Hai, Selamat Datang!</h1>
 
-                    <form action="{{ route('login.post') }}" method="POST">
+                    <form action="{{ route('login.user') }}" method="POST">
                         @csrf
 
                         <div class="input-group">
