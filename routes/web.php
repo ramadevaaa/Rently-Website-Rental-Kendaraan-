@@ -150,10 +150,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Memastikan hanya admin yang mengakses page admin, user tidak bisa
 Route::middleware(['auth', 'role:admin'])
     ->prefix('admin')
-    ->name('admin.')
     ->group(function () {
 
-        Route::get('/', [AdminController::class, 'index'])
-            ->name('dashboard');
+        Route::get('/', function(){
+            return redirect()->route('admin.dashboard');
+        });
 
     });
