@@ -7,6 +7,7 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logorently-header.png') }}">
     @stack('styles')
 </head>
 <body>

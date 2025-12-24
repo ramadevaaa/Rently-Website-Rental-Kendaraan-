@@ -96,7 +96,7 @@
                         <a href="{{ route('login') }}" class="btn btn-primary btn-lg btn-block">Login untuk Memesan</a>
                     @endauth
 
-                    <a href="{{ route('kendaraan.index') }}" class="btn btn-outline btn-lg btn-block">Kembali ke Daftar</a>
+                    <a href="{{ route('kendaraan.index') }}" class="btn btn-outline btn-lg btn-block">Kembali</a>
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'RentLy - Rental Kendaraan Terpercaya')</title>
     <link rel="stylesheet" href="{{ asset('css/password-reset.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logorently-header.png') }}">
     
     @stack('styles')
 </head>
