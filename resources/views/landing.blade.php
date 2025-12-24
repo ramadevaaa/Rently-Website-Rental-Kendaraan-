@@ -9,8 +9,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Sewa Kendaraan Impian Kami</h1>
-                <p class="hero-subtitle">Dapatkan pengalaman rental terbaik dengan harga terjangkau dan pelayanan
-                    profesional</p>
+                <p class="hero-subtitle">CIHUY</p>
                 <div class="hero-cta">
                     <a href="{{ route('kendaraan.index') }}" class="btn btn-primary btn-lg">Lihat Kendaraan</a>
                     @guest
