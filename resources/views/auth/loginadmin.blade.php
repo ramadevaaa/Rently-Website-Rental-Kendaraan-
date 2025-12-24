@@ -2,6 +2,10 @@
 
 @section('title', 'Login Admin - RentLy')
 
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/loginadmin.css') }}">
+@endpush
+
 @section('content')
 <section class="login-wrapper">
     <div class="login-container">
