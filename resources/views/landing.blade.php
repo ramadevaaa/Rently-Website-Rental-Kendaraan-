@@ -28,7 +28,7 @@
 
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <img src="/images/car.png" alt="car">
+                        <img src="{{ asset('images/car.png') }}" alt="car">
                     </div>
                     <h3>7+</h3>
                     <p>Total Kendaraan</p>
@@ -36,7 +36,7 @@
 
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <img src="/images/checklist.png" alt="check">
+                        <img src="{{ asset('images/checklist.png') }}" alt="check">
                     </div>
                     <h3>122+</h3>
                     <p>Siap Disewa</p>
@@ -44,7 +44,7 @@
 
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <img src="/images/medal.png" alt="rating">
+                        <img src="{{ asset('images/medal.png') }}" alt="rating">
                     </div>
                     <h3>4.9/5</h3>
                     <p>Rating Pelanggan</p>
@@ -52,7 +52,7 @@
 
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <img src="/images/group.png" alt="users">
+                        <img src="{{ asset('images/group.png') }}" alt="users">
                     </div>
                     <h3>1000+</h3>
                     <p>Pelanggan Puas</p>
