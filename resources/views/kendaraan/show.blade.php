@@ -10,9 +10,6 @@
             <div class="detail-image">
                 <div class="image-wrapper">
                     <img src="{{ $kendaraan->foto_url }}" alt="{{ $kendaraan->nama }}">
-                    @if($kendaraan->is_trusted)
-                        <span class="badge badge-trusted badge-lg">✓ Terpercaya</span>
-                    @endif
                 </div>
             </div>
 

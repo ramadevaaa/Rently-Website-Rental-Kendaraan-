@@ -63,10 +63,7 @@
         <div class="vehicle-grid">
             @forelse($kendaraans as $kendaraan)
                 <div class="vehicle-card">
-                    @if($kendaraan->is_trusted)
-                        <span class="badge badge-trusted">✓ Terpercaya</span>
-                    @endif
-
+                   
                     @if($kendaraan->status == 'disewa')
                         <span class="badge badge-rented">Sedang Disewa</span>
                     @elseif($kendaraan->status == 'maintenance')

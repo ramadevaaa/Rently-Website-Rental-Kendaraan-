@@ -92,13 +92,6 @@
                         <small style="color: var(--text-light);">Kosongkan jika tidak ingin mengubah foto</small>
                     </div>
 
-                    <div class="form-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="is_trusted" value="1" {{ old('is_trusted',$kendaraan->is_trusted)?'checked':'' }}>
-                            <span>Tandai sebagai kendaraan terpercaya</span>
-                        </label>
-                    </div>
-
                     <div class="form-actions">
                         <a href="{{ route('admin.kendaraan.index') }}" class="btn btn-outline btn-lg">Batal</a>
                         <button type="submit" class="btn btn-primary btn-lg">Update Kendaraan</button>

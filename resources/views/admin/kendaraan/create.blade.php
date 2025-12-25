@@ -88,13 +88,6 @@
                         <small style="color: var(--text-light);">Format: JPG, PNG, GIF. Maksimal 2MB</small>
                     </div>
 
-                    <div class="form-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="is_trusted" value="1" {{ old('is_trusted')?'checked':'' }}>
-                            <span>Tandai sebagai kendaraan terpercaya</span>
-                        </label>
-                    </div>
-
                     <div class="form-actions">
                         <a href="{{ route('admin.dashboard') }}" class="btn btn-outline btn-lg">Batal</a>
                         <button type="submit" class="btn btn-primary btn-lg">Simpan Kendaraan</button>

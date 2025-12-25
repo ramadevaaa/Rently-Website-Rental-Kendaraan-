@@ -21,7 +21,10 @@ class Kendaraan extends Model
         'status',
         'deskripsi',
         'foto',
-        'is_trusted',
+    ];
+
+    protected $attributes = [
+    'is_trusted' => false,
     ];
 
     protected $casts = [
