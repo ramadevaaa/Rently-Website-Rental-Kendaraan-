@@ -4,22 +4,53 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Sewa Kendaraan Impian Anda</h1>
-                <p class="hero-subtitle">Dapatkan pengalaman rental terbaik dengan harga terjangkau dan pelayanan
-                    profesional</p>
-                <div class="hero-cta">
-                    <a href="{{ route('kendaraan.index') }}" class="btn btn-primary btn-lg">Lihat Kendaraan</a>
-                    @guest
-                        <a href="{{ route('register') }}" class="btn btn-outline">Daftar Sekarang</a>
-                    @endguest
+   <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Sewa Kendaraan Impian Anda</h1>
+            <p class="hero-subtitle">
+                Dapatkan pengalaman rental terbaik dengan harga terjangkau dan pelayanan profesional
+            </p>
+
+            {{-- ✅ SEARCH BAR: TARUH DI SINI --}}
+            <form action="{{ route('kendaraan.index') }}" method="GET" class="hero-search">
+                <div class="search-bar">
+                    <svg class="search-icon" width="18" height="18" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M8.5 3a5.5 5.5 0 104.15 9.11l2.62 2.62a1 1 0 001.41-1.41l-2.62-2.62A5.5 5.5 0 008.5 3zM5 8.5a3.5 3.5 0 117 0 3.5 3.5 0 01-7 0z" clip-rule="evenodd"/>
+                    </svg>
+
+                    <input
+                        type="text"
+                        name="search"
+                        class="search-input"
+                        placeholder="Cari mobil, motor, merk, atau tahun…"
+                        value="{{ request('search') }}"
+                        aria-label="Cari kendaraan"
+                    />
+
+                    <button type="submit" class="btn btn-primary search-btn">Cari</button>
                 </div>
+
+                <div class="search-hint">
+                    Contoh:
+                    <a href="{{ route('kendaraan.index', ['search' => 'Toyota']) }}">Toyota</a>,
+                    <a href="{{ route('kendaraan.index', ['search' => '2022']) }}">2022</a>,
+                    <a href="{{ route('kendaraan.index', ['search' => 'motor']) }}">motor</a>
+                </div>
+            </form>
+            {{-- ✅ END SEARCH BAR --}}
+
+            <div class="hero-cta">
+                <a href="{{ route('kendaraan.index') }}" class="btn btn-primary btn-lg">Lihat Kendaraan</a>
+                @guest
+                    <a href="{{ route('register') }}" class="btn btn-outline">Daftar Sekarang</a>
+                @endguest
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Stats Section -->
     <section class="stats">

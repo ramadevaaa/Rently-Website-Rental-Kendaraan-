@@ -160,12 +160,11 @@ img {
 .btn-outline {
     background: whitesmoke;
     color: var(--primary);
-
 }
 
 .btn-outline:hover {
     background: var(--primary);
-     transform: translateY(-2px);
+    transform: translateY(-2px);
     color: #fff;
 }
 
@@ -252,112 +251,133 @@ img {
     opacity: 1;
 }
 
-/* Hero Section */
-.hero {
+/* =========================
+   HERO Section (UPDATED)
+   - lebih hidup, tidak terlalu kosong
+   - transisi halus ke putih
+========================= */
+.hero{
     position: relative;
-    min-height: 620px;
+    overflow: hidden;
+    min-height: 70vh; /* biar ga kebanyakan kosong */
     display: flex;
     align-items: center;
-    overflow: hidden;
-
-    /* Gradien lebih premium: biru gelap → biru lembut */
-    background: linear-gradient(180deg, #0F3A5A 0%, #3F82B5 45%, #EAF4FF 100%);
-
-    color: #0E1F2F;
-    padding: 40px 20px;
+    padding: 96px 0 88px;
+    color: #fff;
+    background: linear-gradient(135deg, #0b2a47 0%, #165c86 55%, #86b6cf 100%);
 }
 
-/* Background pattern yang lebih soft & modern */
-.hero-bg {
+.hero-bg{
     position: absolute;
     inset: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%230F3A5A" width="1200" height="600"/><circle fill="%23ffffff" fill-opacity="0.03" cx="250" cy="120" r="180"/><circle fill="%23ffffff" fill-opacity="0.03" cx="1000" cy="450" r="250"/></svg>');
-    background-size: cover;
-    opacity: 0.35;
+    pointer-events: none;
+    background:
+        radial-gradient(900px 600px at 15% 25%, rgba(255,255,255,.14), transparent 60%),
+        radial-gradient(700px 500px at 80% 70%, rgba(255,255,255,.10), transparent 62%),
+        linear-gradient(to bottom, rgba(0,0,0,.22), rgba(0,0,0,.06));
 }
 
-/* Konten tetap di atas background */
-.hero-content {
+.hero-content{
     position: relative;
     z-index: 2;
     text-align: center;
     max-width: 760px;
     margin: 0 auto;
+
+    padding: 28px 28px 24px;
+    border-radius: 18px;
+    background: rgba(7, 24, 38, .22);
+    border: 1px solid rgba(255,255,255,.14);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 18px 50px rgba(0,0,0,.25);
 }
 
-/* Headline lebih bold & elegan */
-.hero-title {
-    font-size: 58px;
+.hero-title{
+    font-size: clamp(32px, 5vw, 56px);
     font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -1px;
-    margin-bottom: 20px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
     color: #ffffff;
-    text-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    text-shadow: 0 6px 18px rgba(0,0,0,.25);
 }
 
-/* Subheadline lebih ringan & readable */
-.hero-subtitle {
-    font-size: 20px;
-    color: #F0F6FC;
-    margin-bottom: 36px;
-    opacity: 0.95;
+.hero-subtitle{
+    font-size: clamp(14px, 1.6vw, 18px);
+    line-height: 1.6;
+    color: rgba(255,255,255,.86);
+    max-width: 56ch;
+    margin: 0 auto 24px auto;
 }
 
-/* CTA group */
-.hero-cta {
+.hero-cta{
     display: flex;
     justify-content: center;
-    gap: 18px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
-/* Tombol modern */
-.hero-btn {
-    padding: 14px 32px;
+/* tombol hero: lebih premium & kontras di area biru */
+.hero .btn{
     border-radius: 12px;
-    font-size: 17px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.25s ease;
+    padding: 12px 18px;
 }
 
-/* Tombol utama */
-.hero-btn.primary {
-    background: #3ECF8E;
-    color: #0B1F16;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+.hero .btn-primary{
+    background: rgba(11,34,52,.92);
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 10px 25px rgba(0,0,0,.22);
+}
+.hero .btn-primary:hover{
+    background: rgba(11,34,52,1);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 35px rgba(0,0,0,.28);
 }
 
-.hero-btn.primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+/* override outline khusus hero agar tidak jadi putih polos */
+.hero .btn-outline{
+    background: rgba(255,255,255,.10);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.55);
+}
+.hero .btn-outline:hover{
+    background: rgba(255,255,255,.16);
+    color: #fff;
+    transform: translateY(-2px);
 }
 
-/* Tombol sekunder */
-.hero-btn.secondary {
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    background: transparent;
+/* transisi halus ke section putih */
+.hero::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-3px;
+    height:19px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), #fff);
 }
 
-.hero-btn.secondary:hover {
-    background: rgba(255,255,255,0.12);
-    transform: translateY(-3px);
+/* =========================
+   Stats Section (UPDATED)
+   - OPSIONAL: naik sedikit masuk area hero
+========================= */
+.stats{
+    margin-top: -60x;        /* OPSIONAL: kalau tak mau, ubah jadi 0 */
+    padding: 0 0 72px;
+    background: #fff;
+    position: relative;
+    z-index: 3;
 }
 
-
-/* Stats Section */
-.stats {
-    padding: 80px 0;
-    background: var(--light);
-}
-
-/* FIX: Ini WAJIB ada */
+/* FIX + panel modern */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
+
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(10px);
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.10);
 }
 
 /* Responsive */
@@ -386,6 +406,16 @@ img {
 .stat-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
+}
+
+/* override shadow supaya tidak dobel (karena stats-grid sudah punya shadow) */
+.stats-grid .stat-card{
+    box-shadow: none;
+    border: 1px solid rgba(229,231,235,.85);
+}
+.stats-grid .stat-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,.10);
 }
 
 /* Icon */
@@ -476,8 +506,8 @@ img {
 .category-card {
     display: flex;
     flex-direction: column;
-    align-items: center;     /* CENTER horizontal semua isi */
-    justify-content: center; /* CENTER vertical isi utama */
+    align-items: center;
+    justify-content: center;
     text-align: center;
     padding: 32px 24px;
 }
@@ -674,7 +704,7 @@ img {
 .feature-icon {
   width: 72px;
   height: 72px;
-  margin: 0 auto 16px auto; /* ⬅️ INI KUNCINYA */
+  margin: 0 auto 16px auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -769,59 +799,132 @@ img {
 }
 
 /* Page Header */
-.page-header {
-    padding: 60px 0;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    color: #fff;
-    text-align: center;
+/* =========================
+   PAGE HEADER (UPDATED)
+========================= */
+.page-header{
+  position: relative;
+  overflow: hidden;
+
+  /* tinggi & padding responsif (bagus saat zoom in/out) */
+  padding: clamp(64px, 9vh, 96px) 0 clamp(44px, 6vh, 64px);
+
+  color: #fff;
+  text-align: center;
+
+  background: linear-gradient(135deg, #0b2a47 0%, #165c86 55%, #86b6cf 100%);
 }
 
-.page-header h1 {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 12px;
+.page-header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(900px 520px at 18% 25%, rgba(255,255,255,.14), transparent 60%),
+    radial-gradient(720px 520px at 82% 70%, rgba(255,255,255,.10), transparent 62%),
+    linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.06));
 }
 
-/* Filter Section */
-.filter-section {
-    padding: 32px 0;
+/* transisi halus ke putih (biar tidak ada band putih tebal) */
+.page-header::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-1px;
+  height: 15px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.35) 55%,
+    rgba(255,255,255,.95) 100%
+  );
 }
 
-.filter-form {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+.page-header .container{
+  position: relative;
+  z-index: 2;
+
+  /* panel kaca seperti hero */
+  max-width: min(880px, 92vw);
+  margin: 0 auto;
+  padding: clamp(16px, 2vw, 26px);
+  border-radius: 18px;
+
+  background: rgba(7, 24, 38, .16);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.18);
 }
 
-.filter-group {
-    flex: 1;
-    min-width: 200px;
+.page-header h1{
+  font-size: clamp(28px, 4.2vw, 46px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  text-shadow: 0 6px 18px rgba(0,0,0,.25);
 }
 
-.form-control {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    font-size: 15px;
-    transition: all 0.3s ease;
+.page-header p{
+  font-size: clamp(14px, 1.4vw, 16px);
+  opacity: .9;
+  max-width: 60ch;
+  margin: 0 auto;
 }
 
-.form-control:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+
+/* =========================
+   FILTER BAR 
+========================= */
+.filter-section{
+  position: relative;
+  z-index: 3;
+
+  /* naik sedikit biar nyatu sama header */
+  margin-top: clamp(-30px, -4vh, -16px);
+
+  padding: 0 0 32px;
+  background: transparent;
 }
 
-.form-control.is-invalid {
-    border-color: var(--danger);
+.filter-form{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+
+  max-width: 900px;
+  margin: 0 auto;
+
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(229,231,235,.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 32px rgba(0,0,0,.08);
 }
 
-.invalid-feedback {
-    color: var(--danger);
-    font-size: 13px;
-    margin-top: 4px;
+/* input/select lebih rapih */
+.filter-form .form-control{
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(229,231,235,.95);
+  background: #fff;
 }
+
+/* tombol cari mengikuti tinggi input */
+.filter-form .btn{
+  height: 44px;
+  border-radius: 12px;
+  padding: 0 18px;
+}
+
+/* mobile: jadi 1 kolom */
+@media (max-width: 640px){
+  .filter-form{ padding: 12px; }
+  .filter-group{ min-width: 100%; }
+  .filter-form .btn{ width: 100%; }
+}
+
 
 /* Results Info */
 .results-info {
@@ -1502,3 +1605,27 @@ textarea.form-control {
 /* Text utilities */
 .text-center { text-align: center; }
 .required { color: var(--danger); }
+
+/* Search Bar */
+.hero-search{ margin: 18px auto 12px; max-width: 720px; }
+.search-bar{
+  display:flex; align-items:center; gap:10px;
+  padding:10px; border-radius:14px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.22);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.18);
+}
+.search-icon{ color: rgba(255,255,255,.9); margin-left:6px; }
+.search-input{
+  flex:1; border:none; outline:none; background:transparent;
+  color:#fff; font-size:15px; padding:10px 8px;
+}
+.search-input::placeholder{ color: rgba(255,255,255,.7); }
+.search-btn{ padding:10px 16px; border-radius:12px; white-space:nowrap; }
+.search-hint{ margin-top:10px; font-size:13px; color: rgba(255,255,255,.78); }
+.search-hint a{ color:#fff; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width:576px){
+  .search-bar{ flex-wrap:wrap; }
+  .search-btn{ width:100%; }
+}
