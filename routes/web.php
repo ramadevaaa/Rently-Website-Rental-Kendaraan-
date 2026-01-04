@@ -33,10 +33,7 @@ Route::get('/', function () {
 // Kendaraan (Public)
 Route::get('/kendaraan', [KendaraanController::class, 'index'])->name('kendaraan.index');
 Route::get('/kendaraan/{id}', [KendaraanController::class, 'show'])->name('kendaraan.show');
-Route::middleware('role:user')->group(function () {
-    Route::get('/kendaraan', [KendaraanController::class, 'index'])->name('kendaraan.index');
-    Route::get('/kendaraan/{id}', [KendaraanController::class, 'show'])->name('kendaraan.show');
-});
+
 
 // Informasi 
 Route::get('/tentang-kami', function () {
