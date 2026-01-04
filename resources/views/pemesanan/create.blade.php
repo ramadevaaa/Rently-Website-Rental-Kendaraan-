@@ -3,7 +3,7 @@
 @section('title', 'Pesan ' . $kendaraan->nama . ' - RentLy')
 
 @section('content')
-<section class="pemesanan-form">
+<section class="pemesanan-form pemesanan-page">
     <div class="container">
         <div class="form-header">
             <h1>Form Pemesanan</h1>

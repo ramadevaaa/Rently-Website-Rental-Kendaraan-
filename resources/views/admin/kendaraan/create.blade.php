@@ -1,15 +1,15 @@
 @extends('layouts.admin')
 @section('title', 'Tambah Kendaraan - Admin')
 @section('content')
-<section class="pemesanan-form">
+<section class="admin-create-page">
     <div class="container">
-        <div class="form-header">
+        <div class="form-header admin-form-header">
             <h1>Tambah Kendaraan Baru</h1>
             <p>Lengkapi form di bawah untuk menambah kendaraan</p>
         </div>
 
         <div style="max-width: 800px; margin: 0 auto;">
-            <div class="form-content">
+            <div class="form-content admin-form-content">
                 <form action="{{ route('admin.kendaraan.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     
