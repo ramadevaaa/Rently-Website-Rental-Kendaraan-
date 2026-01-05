@@ -92,7 +92,7 @@ use Illuminate\Support\Facades\Storage;
                 'plat_nomor' => 'required|string|max:20|unique:tb_kendaraan,plat_nomor,' . $id,
                 'tahun' => 'required|integer|min:1900|max:' . (date('Y') + 1),
                 'warna' => 'required|string|max:50',
-                'harga_per_hari' => 'required|numeric|min:0',
+                'harga_per_hari' => 'required|integer|min:1000|max:10000000',
                 'status' => 'required|in:tersedia,disewa,maintenance',
                 'deskripsi' => 'nullable|string',
                 'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',

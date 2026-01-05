@@ -94,7 +94,7 @@
         </div>
 
         @if($kendaraans->hasPages())
-        <div class="pagination-wrapper">{{ $kendaraans->links() }}</div>
+        <div class="pagination-wrapper">{{ $kendaraans->links('custom') }}</div>
         @endif
     </div>
 </section>

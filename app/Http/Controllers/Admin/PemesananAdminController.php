@@ -55,11 +55,17 @@ class PemesananAdminController extends Controller
     {
         $request->validate([
             'status' => 'required|in:approved,rejected,completed',
+            'rejection_reason' => 'required_if:status,rejected|max:1000',
         ]);
 
         $pemesanan = Pemesanan::findOrFail($id);
         $old_status = $pemesanan->status;
-        $pemesanan->update(['status' => $request->status]);
+        $pemesanan->update([
+        'status' => $request->status,
+        'rejection_reason' => $request->status === 'rejected'
+        ? $request->rejection_reason
+        : null,
+    ]);
 
         // Update status kendaraan
         $kendaraan = $pemesanan->kendaraan;
@@ -119,4 +125,48 @@ if ($request['status'] === 'approved' && $old_status === 'pending') {
         return redirect()->route('admin.pemesanan.index')
             ->with('success', 'Pemesanan berhasil dihapus');
     }
+    public function showRejectForm($id)
+{
+    $pemesanan = Pemesanan::with(['user', 'kendaraan'])->findOrFail($id);
+
+    // hanya bisa ditolak kalau masih pending
+    if ($pemesanan->status !== 'pending') {
+        return redirect()->route('admin.pemesanan.show', $pemesanan->id)
+            ->with('error', 'Pemesanan ini sudah diproses.');
+    }
+
+    return view('admin.pemesanan.reject', compact('pemesanan'));
 }
+
+public function reject(Request $request, $id)
+{
+    $request->validate([
+        'rejection_reason' => 'required|string|min:5|max:500',
+    ], [
+        'rejection_reason.required' => 'Alasan penolakan wajib diisi.',
+    ]);
+
+    $pemesanan = Pemesanan::with('kendaraan')->findOrFail($id);
+
+    if ($pemesanan->status !== 'pending') {
+        return redirect()->route('admin.pemesanan.show', $pemesanan->id)
+            ->with('error', 'Pemesanan ini sudah diproses.');
+    }
+
+    $pemesanan->update([
+        'status' => 'rejected',
+        'rejection_reason' => $request->rejection_reason,
+        'rejected_at' => now(),
+    ]);
+
+    // kendaraan balik tersedia
+    if ($pemesanan->kendaraan) {
+        $pemesanan->kendaraan->update(['status' => 'tersedia']);
+    }
+
+    return redirect()->route('admin.pemesanan.show', $pemesanan->id)
+        ->with('success', 'Pemesanan berhasil ditolak.');
+}
+
+}
+

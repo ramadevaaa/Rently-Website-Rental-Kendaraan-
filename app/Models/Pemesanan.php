@@ -21,6 +21,7 @@ class Pemesanan extends Model
         'total_harga',
         'status',
         'catatan',
+        'rejection_reason',
     ];
 
     protected $casts = [

@@ -93,6 +93,11 @@ Route::get('/pemesanan', [PemesananAdminController::class, 'index'])->name('peme
 Route::get('/pemesanan/{id}', [PemesananAdminController::class, 'show'])->name('pemesanan.show');
 Route::post('/pemesanan/{id}/status', [PemesananAdminController::class, 'updateStatus'])->name('pemesanan.updateStatus');
 Route::delete('/pemesanan/{id}', [PemesananAdminController::class, 'destroy'])->name('pemesanan.destroy');
+Route::get('/pemesanan/{id}/reject', [PemesananAdminController::class, 'showRejectForm'])
+    ->name('pemesanan.reject.form');
+
+Route::post('/pemesanan/{id}/reject', [PemesananAdminController::class, 'reject'])
+    ->name('pemesanan.reject');
 });
 
 //reset-password

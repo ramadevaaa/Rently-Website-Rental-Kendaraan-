@@ -23,13 +23,9 @@ class Kendaraan extends Model
         'foto',
     ];
 
-    protected $attributes = [
-    'is_trusted' => false,
-    ];
 
     protected $casts = [
         'harga_per_hari' => 'decimal:2',
-        'is_trusted' => 'boolean',
     ];
 
     // Relasi: Kendaraan memiliki banyak pemesanan

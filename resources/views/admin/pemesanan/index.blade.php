@@ -82,24 +82,6 @@
                         <span class="order-date">{{ $p->created_at->format('d M Y H:i') }}</span>
                         <div style="display: flex; gap: 8px;">
                             <a href="{{ route('admin.pemesanan.show', $p->id) }}" class="btn btn-sm btn-primary">Detail</a>
-                            @if($p->status == 'pending')
-                            <form action="{{ route('admin.pemesanan.updateStatus', $p->id) }}" method="POST" style="display: inline;">
-                                @csrf
-                                <input type="hidden" name="status" value="approved">
-                                <button type="submit" class="btn btn-sm" style="background: var(--success); color: #fff;">Setujui</button>
-                            </form>
-                            <form action="{{ route('admin.pemesanan.updateStatus', $p->id) }}" method="POST" style="display: inline;">
-                                @csrf
-                                <input type="hidden" name="status" value="rejected">
-                                <button type="submit" class="btn btn-sm btn-danger">Tolak</button>
-                            </form>
-                            @elseif($p->status == 'approved')
-                            <form action="{{ route('admin.pemesanan.updateStatus', $p->id) }}" method="POST" style="display: inline;">
-                                @csrf
-                                <input type="hidden" name="status" value="completed">
-                                <button type="submit" class="btn btn-sm" style="background: var(--info); color: #fff;">Selesaikan</button>
-                            </form>
-                            @endif
                         </div>
                     </div>
                 </div>
@@ -112,7 +94,7 @@
         </div>
 
         @if($pemesanans->hasPages())
-        <div class="pagination-wrapper">{{ $pemesanans->links() }}</div>
+        <div class="pagination-wrapper">{{ $pemesanans->links('custom') }}</div>
         @endif
     </div>
 </section>

@@ -58,19 +58,32 @@
                     @endif
                 </div>
 
-                <!-- Actions -->
-                <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
-                    @if($pemesanan->status == 'pending')
-                    <form action="{{ route('admin.pemesanan.updateStatus', $pemesanan->id) }}" method="POST" style="flex: 1;">
-                        @csrf
-                        <input type="hidden" name="status" value="approved">
-                        <button type="submit" class="btn btn-lg btn-block" style="background: var(--success); color: #fff;">✓ Setujui Pemesanan</button>
-                    </form>
-                    <form action="{{ route('admin.pemesanan.updateStatus', $pemesanan->id) }}" method="POST" style="flex: 1;">
-                        @csrf
-                        <input type="hidden" name="status" value="rejected">
-                        <button type="submit" class="btn btn-danger btn-lg btn-block" onclick="return confirm('Yakin tolak pemesanan ini?')">✗ Tolak Pemesanan</button>
-                    </form>
+<!-- Actions -->
+<div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+    @if($pemesanan->status === 'pending')
+
+        {{-- APPROVE --}}
+        <form action="{{ route('admin.pemesanan.updateStatus', $pemesanan->id) }}"
+              method="POST" style="flex: 1;">
+            @csrf
+            <input type="hidden" name="status" value="approved">
+            <button type="submit"
+                class="btn btn-lg btn-block"
+                style="background: var(--success); color: #fff;">
+                ✓ Setujui Pemesanan
+            </button>
+        </form>
+
+        {{-- REJECT (LINK SAJA) --}}
+        <a href="{{ route('admin.pemesanan.reject.form', $pemesanan->id) }}"
+           class="btn btn-danger btn-lg btn-block"
+           style="flex: 1;">
+            ✗ Tolak Pemesanan
+        </a>
+
+</div>
+
+
                     @elseif($pemesanan->status == 'approved')
                     <form action="{{ route('admin.pemesanan.updateStatus', $pemesanan->id) }}" method="POST" style="flex: 1;">
                         @csrf

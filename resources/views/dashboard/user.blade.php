@@ -128,6 +128,21 @@
                                     <strong>Catatan:</strong> {{ $pemesanan->catatan }}
                                 </div>
                             @endif
+                            @if($pemesanan->status === 'rejected' && $pemesanan->rejection_reason)
+                            <div class="order-rejection" style="
+                                margin-top: 12px;
+                                padding: 12px 14px;
+                                background: #fdecea;
+                                border-left: 4px solid #e53935;
+                                border-radius: 8px;
+                                color: #b71c1c;
+                                font-size: 14px;
+                            ">
+                                <strong>Alasan Penolakan:</strong><br>
+                                {{ $pemesanan->rejection_reason }}
+                            </div>
+                        @endif
+
 
                             <div class="order-actions">
                                 <span class="order-date">Dipesan: {{ $pemesanan->created_at->format('d M Y H:i') }}</span>
@@ -157,7 +172,7 @@
             <!-- Pagination -->
             @if($pemesanans->hasPages())
                 <div class="pagination-wrapper">
-                    {{ $pemesanans->links('pagination::default') }}
+                    {{ $pemesanans->links('custom') }}
                 </div>
             @endif
         </div>
