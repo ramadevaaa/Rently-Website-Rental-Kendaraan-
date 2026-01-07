@@ -29,6 +29,7 @@ class ProfileController extends Controller
             'email'   => 'required|email|unique:users,email,' . Auth::id(),
             'phone'   => 'nullable|string|max:20',
             'address' => 'nullable|string|max:255',
+            'age'     => 'nullable|integer|min:0',
         ]);
 
         $user = Auth::user();
@@ -38,6 +39,7 @@ class ProfileController extends Controller
             'email'   => $request->email,
             'phone'   => $request->phone,
             'address' => $request->address,
+            'age'     => $request->age,
         ]);
 
         return redirect()

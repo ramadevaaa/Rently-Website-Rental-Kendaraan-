@@ -43,6 +43,11 @@
             <label>Alamat</label>
             <input type="text" class="input-disabled" value="{{ $user->address ?? '-' }}" disabled>
         </div>
+
+        <div class="form-group">
+            <label>Umur</label>
+            <input type="number" class="input-disabled" value="{{ $user->age ?? '-' }}" disabled>
+        </div>
     </div>
 
 </div>

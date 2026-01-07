@@ -40,6 +40,11 @@
                 <label>Alamat</label>
                 <input type="text" name="address" value="{{ old('address', $user->address) }}">
             </div>
+
+            <div class="form-group">
+                <label>Umur</label>
+                <input type="number" name="age" value="{{ old('age', $user->age) }}">
+            </div>  
         </div>
 
         <div style="margin-top: 30px;">
