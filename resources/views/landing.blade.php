@@ -8,7 +8,7 @@
     <div class="hero-bg"></div>
     <div class="container">
         <div class="hero-content">
-            <h1 class="hero-title">Sewa Kendaraan Impian Anda</h1>
+            <h1 class="hero-title">ewa Kendaraan Impian Anda</h1>
             <p class="hero-subtitle">
                 Dapatkan pengalaman rental terbaik dengan harga terjangkau dan pelayanan profesional
             </p>
@@ -24,7 +24,7 @@
                         type="text"
                         name="search"
                         class="search-input"
-                        placeholder="Cari mobil, motor, merk, atau tahun…"
+                        placeholder="Cari kendaraan anda"
                         value="{{ request('search') }}"
                         aria-label="Cari kendaraan"
                     />
